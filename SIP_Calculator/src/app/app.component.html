@@ -1,0 +1,20 @@
+<div class="container">
+  <h2>SIP Calculator</h2>
+
+  <form (ngSubmit)="calculateSIP()">
+    <label for="investment">Monthly Investment (₹):</label>
+    <input type="number" [(ngModel)]="monthlyInvestment" name="investment" required>
+
+    <label for="rate">Expected Annual Return Rate (%):</label>
+    <input type="number" [(ngModel)]="annualReturnRate" name="rate" required>
+
+    <label for="duration">Investment Duration (Years):</label>
+    <input type="number" [(ngModel)]="investmentDuration" name="duration" required>
+
+    <button type="submit">Calculate</button>
+  </form>
+
+  <div *ngIf="maturityAmount !== null">
+    <h3>Estimated Maturity Amount: ₹{{ maturityAmount | number: '1.2-2' }}</h3>
+  </div>
+</div>
